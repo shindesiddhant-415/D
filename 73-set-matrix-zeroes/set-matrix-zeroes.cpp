@@ -13,15 +13,15 @@ public:
                 }
             }
         }
-        for(int j=0;j<r.size();j++){
-            for(int i=0;i<matrix[0].size();i++){
-                    matrix[r[j]][i]=0;
+        for(int i=0;i<r.size();i++){
+            for(int j=0;j<matrix[0].size();j++){
+                    matrix[r[i]][j]=0;   //r[i] is imp that will tell which row not only the j
             }
         }
 
-        for(int j=0;j<c.size();j++){
-            for(int i=0;i<matrix.size();i++){
-                    matrix[i][c[j]]=0;
+        for(int i=0;i<matrix.size();i++){
+            for(int j=0;j<c.size();j++){
+                    matrix[i][c[j]]=0;  //[row][col]->
             }
         }
 
