@@ -5,11 +5,13 @@ public:
         int s=0,e=nums.size()-1;
         int mid =(s+e)/2;
         int f=-1,l=-1;
+  
+        //for 1st element staring
         while(s<=e){
             mid=s+(e-s)/2;
             if(nums[mid]==target){
                 f=mid;
-                e=mid-1;
+                e=mid-1;  //go to left
             }else if(nums[mid]>target) {
                 e=mid-1;
             }else{
@@ -19,11 +21,13 @@ public:
         ans.push_back(f);
         e=nums.size()-1;
         s=0;
+
+        //for last element occured
         while(s<=e){
             mid=s+(e-s)/2;
             if(nums[mid]==target){
                 l=mid;
-                s=mid+1;
+                s=mid+1;  //go to right 
             }else if(nums[mid]<target) {
                 s=mid+1;
             }else{
