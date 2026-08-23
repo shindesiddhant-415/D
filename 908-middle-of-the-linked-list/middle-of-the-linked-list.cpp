@@ -22,11 +22,6 @@ public:
         for(int i=0;i<mid;i++){
             temp=temp->next;
         }
-        
-        // while(temp!=nullptr){
-        //     cout<<temp->val;
-        //     temp=temp->next;
-        // }
         return temp;
     }
 };
