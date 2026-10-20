@@ -1,7 +1,7 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-        int arr[128]={0};
+        int arr[128]={0};  //128 for A-Z && a-z
         int req[128]={0};
         int low=0;
         int high=0;
@@ -10,24 +10,24 @@ public:
         int minl=INT_MAX;
         int start_in=0;
         
-        for(int high=0;high<t.size();high++){
+        for(int high=0;high<t.size();high++){ // 1. cal no. of all characters in 't'
             req[t[high]]++;
         }
-
+        // 2. Expand the window using the 'high' pointer over 's'
         for(int high=0;high<s.size();high++){
             arr[s[high]]++;
             if(arr[s[high]]<=req[s[high]]) c++;
-            int len=high-low+1;
-           
             
-            len=high-low+1;
-            while(c==t.size()){
-                len=high-low+1;
+            while(c==t.size()){ // 3. When the window contains all characters needed (c == t.size()), shrink from the left
+                int len=high-low+1;
+
                 if (len < minl){
-                minl=min(minl,len);
-                start_in=low;
+                minl=len;
+                start_in=low; //the index where from substring start 
                 }
                 arr[s[low]]--;
+
+                // If removing s[low] drops its count below what 't' requires, window is no longer valid
                 if(arr[s[low]]<req[s[low]]) c--;
                 low++;
                
