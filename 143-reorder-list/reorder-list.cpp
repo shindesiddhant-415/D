@@ -19,15 +19,15 @@ public:
             return ;
         }
 
-        while(fast!=nullptr && fast->next!=nullptr ){
+        while(fast!=nullptr && fast->next!=nullptr ){ //need to check 
             slow=slow->next;
             fast=fast->next->next;
         }
-        temp=slow;
+        temp=slow; //at middle
         slow=head;
         ListNode* pre=nullptr;
         ListNode* ne=nullptr;
-        while(temp!=nullptr){
+        while(temp!=nullptr){ //reverse the after part of middle and store in temp ,pre
             ne=temp->next;
             temp->next=pre;
             pre=temp;
@@ -35,7 +35,7 @@ public:
         }
 
        
-        while( pre!=nullptr && pre->next!=nullptr){
+        while( pre!=nullptr && pre->next!=nullptr){  //time to merge
             slow=head->next;
             head->next=pre;
             pre=pre->next;
