@@ -12,7 +12,7 @@ public:
         st2=intervals[i][0];
         en2=intervals[i][1];
         if(en1>=st2){
-            en1=max(en1,en2);
+            en1=max(en1,en2);//for avoiding the dublicate we are not adding it to ans
         }else{
             ans.push_back({st1,en1});
             st1=intervals[i][0];
